@@ -1,0 +1,16 @@
+*
+!*/
+
+!art/mobs/**
+!art/tiles/*
+!levels/
+!*.gitignore
+!fonts/*
+!levels/**
+!scenes/**
+!src/**
+!dialogs/**
+
+!README.md
+!LICENCE
+!project.godot
