@@ -76,7 +76,7 @@ func play_animation(animation_name):
 	elif animation_name == "idle":
 		$AnimatedSprite2D.animation = "idle"
 		$AnimatedSprite2D.play()
-		
+
 
 func start(pos):
 	position = pos
@@ -85,7 +85,7 @@ func start(pos):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	pass
+	return
 	#hide()
 	#hit.emit()
 	#$CollisionShape2D.set_deferred("disabled", true)
