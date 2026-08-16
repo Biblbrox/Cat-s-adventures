@@ -10,6 +10,7 @@
 !scenes/**
 !src/**
 !dialogs/**
+!script/**
 
 !README.md
 !LICENCE

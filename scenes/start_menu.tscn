@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/ui/start_menu.gd" id="1_menu"]
+
+[node name="StartMenu" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.16, 0.24, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBox" type="VBoxContainer" parent="Center"]
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/MenuBox"]
+theme_override_font_sizes/font_size = 46
+text = "Angel's Adventures"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="Center/MenuBox"]
+custom_minimum_size = Vector2(340, 58)
+theme_override_font_sizes/font_size = 26
+text = "Start new game"
+
+[node name="ContinueButton" type="Button" parent="Center/MenuBox"]
+custom_minimum_size = Vector2(340, 58)
+theme_override_font_sizes/font_size = 26
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="Center/MenuBox"]
+custom_minimum_size = Vector2(340, 58)
+theme_override_font_sizes/font_size = 26
+text = "Settings"
+
+[connection signal="pressed" from="Center/MenuBox/StartButton" to="." method="_on_start_new_game_pressed"]
+[connection signal="pressed" from="Center/MenuBox/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Center/MenuBox/SettingsButton" to="." method="_on_settings_pressed"]

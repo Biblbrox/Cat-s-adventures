@@ -10,5 +10,3 @@ One of them, a golden retriever, as big as he was kind and innocent, ran while s
 On the other hand, a dark-colored cat, as lazy as any cat, simply sat in the shade of a tree and watched his friend run.
 
 The two were so different, but they enjoyed each other's company. And so spring and summer passed.
-
-

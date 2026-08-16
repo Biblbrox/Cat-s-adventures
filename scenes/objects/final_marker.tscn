@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cmhg4y0w2yyiw"]
+
+[ext_resource type="Script" uid="uid://cb23kk0qealyp" path="res://src/objects/final_marker.gd" id="1_v01gc"]
+
+[node name="FinalMarker" type="CharacterBody2D" unique_id=1103410707]
+script = ExtResource("1_v01gc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13679077]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1099710684]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 1, 1)

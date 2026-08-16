@@ -1,6 +1,5 @@
 extends Node
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Test")
@@ -13,14 +12,15 @@ func _ready() -> void:
 
 
 # func _on_intro_area_event_area_entered() -> void:
-# 	
 func _on_intro_area_event_area_entered() -> void:
+	print("Start of dialog")
 	# check if a dialog is already running
 	if Dialogic.current_timeline != null:
 		return
 
 	Dialogic.start('intro')
 	get_viewport().set_input_as_handled()
+	print("End of dialog")
 
 
 func _on_dog_meet_area_event_area_entered() -> void:
