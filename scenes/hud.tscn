@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0wfomenjjq56"]
+[gd_scene format=3 uid="uid://b0wfomenjjq56"]
 
 [ext_resource type="Script" uid="uid://cjf0rwijqpbje" path="res://src/ui/hud.gd" id="1_m8dmh"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=1828456800]
 script = ExtResource("1_m8dmh")
 
-[node name="Message" type="Label" parent="."]
+[node name="Message" type="Label" parent="." unique_id=816351599]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,12 +17,11 @@ offset_right = 240.0
 offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Dodge the Creeps!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="." unique_id=2091206289]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -35,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Start"
 
-[node name="MessageTimer" type="Timer" parent="."]
+[node name="MessageTimer" type="Timer" parent="." unique_id=1901895993]
 wait_time = 2.0
 one_shot = true
 

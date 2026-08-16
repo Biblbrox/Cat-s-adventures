@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://becvl6wirewbh"]
+[gd_scene format=3 uid="uid://becvl6wirewbh"]
 
 [ext_resource type="Script" uid="uid://cs41pfemurncf" path="res://src/main.gd" id="1_dudbd"]
 [ext_resource type="PackedScene" uid="uid://bbx8l0hrce7g" path="res://scenes/players/cat.tscn" id="1_n7dum"]
@@ -10,79 +10,22 @@ _data = {
 }
 point_count = 8
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sugp2"]
-blend_mode = 1
-
-[sub_resource type="Curve" id="Curve_tefeu"]
-_limits = [0.0, 0.3, 0.0, 1.0]
-_data = [Vector2(0.0236486, 0), 0.0, 1.77875, 0, 0, Vector2(0.472973, 0.3), 0.0, 0.0, 0, 0, Vector2(0.993243, 0.00763413), -1.5879, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_sugp2"]
-curve = SubResource("Curve_tefeu")
-
-[sub_resource type="Gradient" id="Gradient_sugp2"]
-colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jyhfs"]
-gradient = SubResource("Gradient_sugp2")
-
-[sub_resource type="Curve" id="Curve_sugp2"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_jyhfs"]
-_limits = [0.0, 30.0, 0.0, 1.0]
-_data = [Vector2(0.0101351, 14.7111), 0.0, 0.0, 0, 0, Vector2(0.0945946, 21.1486), 0.0, 0.0, 0, 0, Vector2(0.243243, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="Curve_tbgi4"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_tefeu"]
-curve_x = SubResource("Curve_sugp2")
-curve_y = SubResource("Curve_jyhfs")
-curve_z = SubResource("Curve_tbgi4")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sugp2"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -200, 0)
-emission_shape = 3
-emission_box_extents = Vector3(600, 1, 1)
-gravity = Vector3(0, 3000, 0)
-scale_min = 0.2
-scale_over_velocity_curve = SubResource("CurveXYZTexture_tefeu")
-color_initial_ramp = SubResource("GradientTexture1D_jyhfs")
-alpha_curve = SubResource("CurveTexture_sugp2")
-
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1673457361]
 script = ExtResource("1_dudbd")
 
-[node name="StartPosition" type="Marker2D" parent="."]
+[node name="StartPosition" type="Marker2D" parent="." unique_id=1449599581]
 position = Vector2(240, 450)
 
-[node name="MobPath" type="Path2D" parent="."]
+[node name="MobPath" type="Path2D" parent="." unique_id=713144374]
 curve = SubResource("Curve2D_6uila")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1335956331]
 position = Vector2(1152, 0)
-rotation = 1.5708
+rotation = 1.5707964
 
-[node name="HUD" parent="." instance=ExtResource("4_uypgb")]
+[node name="HUD" parent="." unique_id=195015242 instance=ExtResource("4_uypgb")]
 
-[node name="Player" parent="." instance=ExtResource("1_n7dum")]
+[node name="Player" parent="." unique_id=1311975443 instance=ExtResource("1_n7dum")]
 position = Vector2(128, 40)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_sugp2")
-position = Vector2(576, 200)
-amount = 1000
-lifetime = 0.7
-preprocess = 0.5
-visibility_rect = Rect2(-350, -200, 1150, 650)
-process_material = SubResource("ParticleProcessMaterial_sugp2")
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b262rt4cbyvu4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5gjj7"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_5gjj7"]
+colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5gjj7"]
+gradient = SubResource("Gradient_5gjj7")
+
+[sub_resource type="Curve" id="Curve_5gjj7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_smlui"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0.002695419, 15), 0.0, 0.0, 0, 0, Vector2(0.11859839, 23.842106), 0.0, 0.0, 0, 0, Vector2(0.30727762, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_al7tm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5gjj7"]
+curve_x = SubResource("Curve_5gjj7")
+curve_y = SubResource("Curve_smlui")
+curve_z = SubResource("Curve_al7tm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5gjj7"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape = 3
+emission_box_extents = Vector3(350, 1, 1)
+angle_min = -29.99999
+angle_max = 30.000011
+gravity = Vector3(0, 100, 0)
+scale_min = 0.19999999
+scale_curve = SubResource("CurveXYZTexture_5gjj7")
+color_initial_ramp = SubResource("GradientTexture1D_5gjj7")
+
+[node name="BreezeEffect" type="Node2D" unique_id=1380404707]
+
+[node name="Effect" type="GPUParticles2D" parent="." unique_id=1797525183]
+material = SubResource("CanvasItemMaterial_5gjj7")
+amount = 200
+lifetime = 3.0
+preprocess = 1.0
+visibility_rect = Rect2(-350, -200, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_5gjj7")
