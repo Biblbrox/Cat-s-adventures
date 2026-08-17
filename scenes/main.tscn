@@ -28,4 +28,5 @@ rotation = 1.5707964
 [node name="Player" parent="." unique_id=1311975443 instance=ExtResource("1_n7dum")]
 position = Vector2(128, 40)
 
-[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="continue_requested" from="HUD" to="." method="_on_continue_requested"]
+[connection signal="menu_requested" from="HUD" to="." method="_on_menu_requested"]
