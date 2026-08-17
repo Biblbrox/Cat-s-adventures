@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://omc1r2f048u2"]
 
-[ext_resource type="Script" path="res://src/ui/start_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://c4i21u63cluwr" path="res://src/ui/start_menu.gd" id="1_menu"]
 
-[node name="StartMenu" type="Control"]
+[node name="StartMenu" type="Control" unique_id=25700354]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,41 +11,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_menu")
 
-[node name="Background" type="ColorRect" parent="."]
-anchors_preset = 15
+[node name="Background" type="ColorRect" parent="." unique_id=1011647810]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.13, 0.16, 0.24, 1)
 
-[node name="Center" type="CenterContainer" parent="."]
-anchors_preset = 15
+[node name="Center" type="CenterContainer" parent="." unique_id=1819113588]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuBox" type="VBoxContainer" parent="Center"]
+[node name="MenuBox" type="VBoxContainer" parent="Center" unique_id=1936698890]
+layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Title" type="Label" parent="Center/MenuBox"]
+[node name="Title" type="Label" parent="Center/MenuBox" unique_id=2065278981]
+layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "Angel's Adventures"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="Center/MenuBox"]
+[node name="StartButton" type="Button" parent="Center/MenuBox" unique_id=1330290355]
 custom_minimum_size = Vector2(340, 58)
+layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Start new game"
 
-[node name="ContinueButton" type="Button" parent="Center/MenuBox"]
+[node name="ContinueButton" type="Button" parent="Center/MenuBox" unique_id=294330986]
 custom_minimum_size = Vector2(340, 58)
+layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Continue"
 
-[node name="SettingsButton" type="Button" parent="Center/MenuBox"]
+[node name="SettingsButton" type="Button" parent="Center/MenuBox" unique_id=1532241723]
 custom_minimum_size = Vector2(340, 58)
+layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Settings"
 

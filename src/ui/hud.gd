@@ -26,6 +26,10 @@ func show_game_over():
 	await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
 
+func show_level_complete():
+	$LevelComplete.show()
+
+
 func update_score(score):
 	pass
 

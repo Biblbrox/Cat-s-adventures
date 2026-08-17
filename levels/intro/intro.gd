@@ -29,3 +29,9 @@ func _on_dog_meet_area_event_area_entered() -> void:
 
 	Dialogic.start('dog_first_meet')
 	get_viewport().set_input_as_handled()
+
+
+func _on_final_marker_reached() -> void:
+	var game := get_parent()
+	if game != null and game.has_method("on_level_completed"):
+		game.on_level_completed()
