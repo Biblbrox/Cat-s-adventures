@@ -4,6 +4,7 @@ extends Node
 ## Scene path of the level that follows this one. Empty for now; when set,
 ## on_level_completed() should load it instead of (or after) the end screen.
 @export var next_level_path: String = ""
+const START_MENU_PATH := "res://scenes/start_menu.tscn"
 var score
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,9 @@ func _ready() -> void:
 	var level = level_resoure.instantiate()
 	add_child(level)
 	move_child(level, 0)
+	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
+	# The game is launched from the start menu, so no separate "Start" step.
+	new_game()
 
 
 func on_level_completed() -> void:
@@ -20,6 +24,36 @@ func on_level_completed() -> void:
 		pass
 	# For now: show the congratulations screen on the HUD.
 	$HUD.show_level_complete()
+
+
+
+func _on_area_event_area_entered(dialog_name) -> void:
+	print("Start of dialog")
+	# check if a dialog is already running
+	if Dialogic.current_timeline != null:
+		return
+
+	$Player.freeze_player()
+	Dialogic.start(dialog_name)
+
+	get_viewport().set_input_as_handled()
+	print("End of dialog")
+
+
+func _on_dialogic_timeline_ended() -> void:
+	$Player.unfreeze_player()
+
+
+func _on_continue_requested() -> void:
+	# If a next level exists, this is where it would be loaded instead.
+	if next_level_path != "":
+		# TODO(next level): swap the current level for `next_level_path` here.
+		pass
+	$Player.set_physics_process(true)
+
+
+func _on_menu_requested() -> void:
+	get_tree().change_scene_to_file(START_MENU_PATH)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

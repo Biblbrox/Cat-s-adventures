@@ -17,6 +17,14 @@ func _ready() -> void:
 	hide()
 
 
+func freeze_player() -> void:
+	controlable = false
+
+
+func unfreeze_player() -> void:
+	controlable = true
+
+
 func toggle_freeze():
 	controlable = not controlable
 	if not controlable:
@@ -24,10 +32,9 @@ func toggle_freeze():
 
 
 func get_input():
+	velocity.x = 0
 	if not controlable:
 		return
-		
-	velocity.x = 0
 	var right = Input.is_action_pressed('ui_right')
 	var left = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_select')

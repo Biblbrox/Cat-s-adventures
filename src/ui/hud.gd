@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-signal start_game
+signal continue_requested
+signal menu_requested
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +25,6 @@ func show_game_over():
 	$Message.show()
 	
 	await get_tree().create_timer(1.0).timeout
-	$StartButton.show()
 
 func show_level_complete():
 	$LevelComplete.show()
@@ -34,9 +34,13 @@ func update_score(score):
 	pass
 
 
-func _on_start_button_pressed() -> void:
-	$StartButton.hide()
-	start_game.emit()
+func _on_continue_pressed() -> void:
+	$LevelComplete.hide()
+	continue_requested.emit()
+
+
+func _on_menu_pressed() -> void:
+	menu_requested.emit()
 
 func _on_message_timer_timeout() -> void:
 	$Message.hide()

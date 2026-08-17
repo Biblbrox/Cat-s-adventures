@@ -11,24 +11,10 @@ func _ready() -> void:
 	# dog.play_animation("idle")
 
 
-# func _on_intro_area_event_area_entered() -> void:
-func _on_intro_area_event_area_entered() -> void:
-	print("Start of dialog")
-	# check if a dialog is already running
-	if Dialogic.current_timeline != null:
-		return
-
-	Dialogic.start('intro')
-	get_viewport().set_input_as_handled()
-	print("End of dialog")
-
-
-func _on_dog_meet_area_event_area_entered() -> void:
-	if Dialogic.current_timeline != null:
-		return
-
-	Dialogic.start('dog_first_meet')
-	get_viewport().set_input_as_handled()
+func _on_event_area_event_area_entered(dialog_name) -> void:
+	var game := get_parent()
+	if game != null and game.has_method("_on_area_event_area_entered"):
+		game._on_area_event_area_entered(dialog_name)
 
 
 func _on_final_marker_reached() -> void:
