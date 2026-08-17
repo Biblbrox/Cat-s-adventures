@@ -1,13 +1,22 @@
-[gd_scene format=3 uid="uid://cmhg4y0w2yyiw"]
+[gd_scene load_steps=3 format=3 uid="uid://cmhg4y0w2yyiw"]
 
 [ext_resource type="Script" uid="uid://cb23kk0qealyp" path="res://src/objects/final_marker.gd" id="1_v01gc"]
 
-[node name="FinalMarker" type="CharacterBody2D" unique_id=1103410707]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_marker"]
+size = Vector2(48, 56)
+
+[node name="FinalMarker" type="Area2D" unique_id=1103410707]
 script = ExtResource("1_v01gc")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13679077]
+position = Vector2(20, 28)
+shape = SubResource("RectangleShape2D_marker")
+metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1099710684]
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 1, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

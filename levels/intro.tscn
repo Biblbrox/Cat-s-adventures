@@ -1823,3 +1823,4 @@ scale = Vector2(2, 2)
 [connection signal="area_entered" from="IntroArea" to="." method="_on_intro_area_area_entered"]
 [connection signal="event_area_entered" from="IntroArea" to="." method="_on_intro_area_event_area_entered"]
 [connection signal="event_area_entered" from="DogMeetArea" to="." method="_on_dog_meet_area_event_area_entered"]
+[connection signal="marker_reached" from="FinalMarker" to="." method="_on_final_marker_reached"]
