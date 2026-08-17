@@ -10,4 +10,3 @@ Winter brings not only cold, but also beings that try to steal the light for the
 No one knew what happened to the animals that fell victim to the dark beings, but everyone knew that they were never seen again.
 
 A dark being had been threatening the peace of other places. Would the same happen in this field?
-

@@ -1,6 +1,9 @@
 extends Node
 
 @export var mob_scene: PackedScene
+## Scene path of the level that follows this one. Empty for now; when set,
+## on_level_completed() should load it instead of (or after) the end screen.
+@export var next_level_path: String = ""
 var score
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +12,14 @@ func _ready() -> void:
 	var level = level_resoure.instantiate()
 	add_child(level)
 	move_child(level, 0)
+
+
+func on_level_completed() -> void:
+	$Player.set_physics_process(false)
+	if next_level_path != "":
+		pass
+	# For now: show the congratulations screen on the HUD.
+	$HUD.show_level_complete()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +37,7 @@ func new_game() -> void:
 	$Player.start($StartPosition.position)
 	#$StartTimer.start() # Replace with function body.
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
+	# $HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
 
 func _on_score_timer_timeout() -> void:
