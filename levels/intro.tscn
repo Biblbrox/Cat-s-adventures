@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://c7ojv05gfwyd5"]
 
 [ext_resource type="Script" uid="uid://ilfw573hbbjh" path="res://levels/intro/intro.gd" id="1_086ed"]
-[ext_resource type="Texture2D" uid="uid://gnj7xvkefl3y" path="res://art/tiles/Backgrounds/SunnyBackground.png" id="2_wclwk"]
+[ext_resource type="Texture2D" uid="uid://bb7ux1ich28ff" path="res://art/tiles/Backgrounds/SunnyBackground.png" id="2_wclwk"]
 [ext_resource type="Shader" uid="uid://blddjkqkmkqiv" path="res://scenes/wind.gdshader" id="3_dwdbi"]
-[ext_resource type="Texture2D" uid="uid://p2fc6n1877at" path="res://art/tiles/Normal/TX Tileset Ground.png" id="3_ipm0e"]
-[ext_resource type="Texture2D" uid="uid://eecybkdpvn7x" path="res://art/tiles/Normal/TX Village Props.png" id="4_dwdbi"]
+[ext_resource type="Texture2D" uid="uid://cp3upvqpdgkc1" path="res://art/tiles/Normal/TX Tileset Ground.png" id="3_ipm0e"]
+[ext_resource type="Texture2D" uid="uid://w6xbt0obi5bk" path="res://art/tiles/Normal/TX Village Props.png" id="4_dwdbi"]
 [ext_resource type="PackedScene" uid="uid://dx1hs01yh8640" path="res://scenes/event_area.tscn" id="5_t56a8"]
 [ext_resource type="PackedScene" uid="uid://cmhg4y0w2yyiw" path="res://scenes/objects/final_marker.tscn" id="6_wclwk"]
 [ext_resource type="PackedScene" uid="uid://b262rt4cbyvu4" path="res://scenes/effects/breeze_effect.tscn" id="7_breeze"]
