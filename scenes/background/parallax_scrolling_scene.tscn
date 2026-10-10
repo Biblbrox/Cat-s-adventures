@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://kmcu3uy41bm3"]
+
+[ext_resource type="Script" uid="uid://b7uqivtsl0sn0" path="res://scenes/background/parallax_scrolling_scene.gd" id="1_xvau7"]
+[ext_resource type="Texture2D" uid="uid://bb7ux1ich28ff" path="res://art/tiles/Backgrounds/SunnyBackground.png" id="2_p6mt7"]
+[ext_resource type="Texture2D" uid="uid://ctea4lschracu" path="res://art/tiles/Backgrounds/Clouds.png" id="3_k0kfl"]
+
+[node name="ParallaxScrollingScene" type="Node2D" unique_id=272629808]
+script = ExtResource("1_xvau7")
+
+[node name="Background" type="Parallax2D" parent="." unique_id=534883482]
+repeat_size = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=651807550]
+position = Vector2(576.00006, 324.00003)
+scale = Vector2(1.6671491, 1.0000001)
+texture = ExtResource("2_p6mt7")
+
+[node name="Weather" type="Parallax2D" parent="." unique_id=932290295]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Weather" unique_id=1906101886]
+position = Vector2(270, 502.99997)
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("3_k0kfl")
+
+[node name="Landscape" type="Parallax2D" parent="." unique_id=526148404]
+
+[node name="Sprite2D" type="Sprite2D" parent="Landscape" unique_id=1257062302]
+
+[node name="ParallaxLayer4" type="Parallax2D" parent="." unique_id=1727963821]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4" unique_id=1294195635]
