@@ -8,10 +8,6 @@ uniform float wind_strength : hint_range(0,1.5) = .2;
 uniform float wind_speed  : hint_range(.2,5) = 1;
 uniform float scale = 1.0;
 
-//void vertex() {
-	//VERTEX *= scale;
-//}
-
 varying float phase;
 void vertex() {
     VERTEX *= scale;

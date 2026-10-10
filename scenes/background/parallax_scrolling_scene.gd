@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name ParallaxBackprop
 
@@ -17,6 +18,10 @@ func _ready() -> void:
 func _apply_theme() -> void:
 	if theme == null:
 		return
+
+	_set_layer(background, theme.background, theme.background_scale)
+	_set_layer(weather, theme.weather, theme.weather_scale)
+	_set_layer(landscape, theme.landscape, theme.landscape_scale)
 
 func _set_layer(layer: Parallax2D, tex: Texture2D, scroll: Vector2) -> void:
 	layer.visible = tex != null
