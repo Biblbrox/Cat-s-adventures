@@ -2,6 +2,7 @@
 !*/
 
 !art/mobs/**
+!art/tiles/**
 !art/tiles/*
 !levels/
 !*.gitignore
