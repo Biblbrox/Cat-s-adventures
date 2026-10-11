@@ -6,15 +6,10 @@ func _physics_process(delta):
 	# that involves the physics engine, like moving a body that collides with the environment.
 	handle_gravity(delta)
 	
-	if velocity.x != 0:
+	if velocity.x != 0 or velocity.y != 0:
 		$AnimatedSprite2D.flip_h = velocity.x > 0
-		if velocity.y == 0:
-			$AnimatedSprite2D.animation = "walk"
-		else:
-			$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.play()
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
+		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.play()
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()

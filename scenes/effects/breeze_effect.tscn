@@ -1,50 +1,119 @@
-[gd_scene format=3 uid="uid://b262rt4cbyvu4"]
+[gd_scene format=3 uid="uid://dop5dkvtdupyu"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5gjj7"]
+[ext_resource type="Texture2D" uid="uid://dhfgyowkx37yb" path="res://art/effects/lpc leaf recolors/lpc leaf recolors.png" id="1_1ep4n"]
+
+[sub_resource type="CanvasItemMaterial" id="mat_add"]
 blend_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_5gjj7"]
-colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="soft_grad"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5gjj7"]
-gradient = SubResource("Gradient_5gjj7")
+[sub_resource type="GradientTexture2D" id="soft_tex"]
+gradient = SubResource("soft_grad")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
-[sub_resource type="Curve" id="Curve_5gjj7"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Gradient" id="life_grad"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 0.85, 0, 1, 1, 0.85, 0.6, 1, 1, 0.85, 0.6, 1, 1, 0.85, 0)
 
-[sub_resource type="Curve" id="Curve_smlui"]
-_limits = [0.0, 30.0, 0.0, 1.0]
-_data = [Vector2(0.002695419, 15), 0.0, 0.0, 0, 0, Vector2(0.11859839, 23.842106), 0.0, 0.0, 0, 0, Vector2(0.30727762, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
-point_count = 4
+[sub_resource type="GradientTexture1D" id="life_tex"]
+gradient = SubResource("life_grad")
 
-[sub_resource type="Curve" id="Curve_al7tm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5gjj7"]
-curve_x = SubResource("Curve_5gjj7")
-curve_y = SubResource("Curve_smlui")
-curve_z = SubResource("Curve_al7tm")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5gjj7"]
+[sub_resource type="ParticleProcessMaterial" id="breeze_proc"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -200, 0)
+emission_shape_offset = Vector3(-450, 0, 0)
 emission_shape = 3
-emission_box_extents = Vector3(350, 1, 1)
-angle_min = -29.99999
-angle_max = 30.000011
-gravity = Vector3(0, 100, 0)
-scale_min = 0.19999999
-scale_curve = SubResource("CurveXYZTexture_5gjj7")
-color_initial_ramp = SubResource("GradientTexture1D_5gjj7")
+emission_box_extents = Vector3(30, 350, 1)
+direction = Vector3(1, -0.05, 0)
+spread = 12.0
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.15
+scale_max = 0.4
+color_ramp = SubResource("life_tex")
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 4.0
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.2
 
-[node name="BreezeEffect" type="Node2D" unique_id=1380404707]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryp2t"]
+atlas = ExtResource("1_1ep4n")
+region = Rect2(0, 0, 16, 16)
 
-[node name="Effect" type="GPUParticles2D" parent="." unique_id=1797525183]
-material = SubResource("CanvasItemMaterial_5gjj7")
-amount = 200
-lifetime = 3.0
-preprocess = 1.0
-visibility_rect = Rect2(-350, -200, 700, 400)
-process_material = SubResource("ParticleProcessMaterial_5gjj7")
+[sub_resource type="Gradient" id="leaf_colors"]
+offsets = PackedFloat32Array(0, 0, 1)
+colors = PackedColorArray(0.45, 0.75, 0.25, 1, 0.9, 0.7, 0.2, 1, 0.75, 0.8, 0.25, 1)
+
+[sub_resource type="GradientTexture1D" id="leaf_colors_tex"]
+gradient = SubResource("leaf_colors")
+
+[sub_resource type="Gradient" id="leaf_fade"]
+offsets = PackedFloat32Array(0, 0.1, 0.85, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="leaf_fade_tex"]
+gradient = SubResource("leaf_fade")
+
+[sub_resource type="ParticleProcessMaterial" id="leaf_proc"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -300, 0)
+emission_shape = 3
+emission_box_extents = Vector3(450, 1, 1)
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(1, 0.3, 0)
+spread = 25.0
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+angular_velocity_min = -120.0
+angular_velocity_max = 120.0
+gravity = Vector3(40, 220, 0)
+damping_min = 1.0
+damping_max = 2.0
+scale_min = 0.6
+scale_max = 1.1
+color_ramp = SubResource("leaf_fade_tex")
+color_initial_ramp = SubResource("leaf_colors_tex")
+turbulence_enabled = true
+turbulence_noise_strength = 6.0
+turbulence_noise_scale = 3.0
+turbulence_influence_max = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ep4n"]
+atlas = ExtResource("1_1ep4n")
+region = Rect2(16, 49, 16, 16)
+
+[node name="BreezeEffect" type="Node2D" unique_id=511850521]
+
+[node name="Effect" type="GPUParticles2D" parent="." unique_id=1283949291]
+material = SubResource("mat_add")
+amount = 90
+texture = SubResource("soft_tex")
+lifetime = 8.0
+preprocess = 8.0
+speed_scale = 0.5
+visibility_rect = Rect2(-500, -400, 1000, 800)
+process_material = SubResource("breeze_proc")
+
+[node name="LeavesGreen" type="GPUParticles2D" parent="." unique_id=639947997]
+amount = 14
+texture = SubResource("AtlasTexture_ryp2t")
+lifetime = 12.0
+preprocess = 15.0
+randomness = 0.5
+visibility_rect = Rect2(-500, -350, 1000, 800)
+process_material = SubResource("leaf_proc")
+
+[node name="LeavesOrange" type="GPUParticles2D" parent="." unique_id=193095745]
+amount = 20
+texture = SubResource("AtlasTexture_1ep4n")
+lifetime = 20.0
+preprocess = 15.0
+randomness = 0.5
+visibility_rect = Rect2(-500, -350, 1000, 800)
+process_material = SubResource("leaf_proc")

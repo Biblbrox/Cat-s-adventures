@@ -6,10 +6,12 @@ extends Node
 @export var next_level_path: String = ""
 const START_MENU_PATH := "res://scenes/start_menu.tscn"
 var score
+const CURRENT_LEVEL := "res://levels/intro/intro.tscn"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var level_resoure = ResourceLoader.load("res://levels/intro.tscn")
+	var level_resoure = ResourceLoader.load("res://levels/intro/intro.tscn")
 	var level = level_resoure.instantiate()
 	add_child(level)
 	move_child(level, 0)
@@ -18,10 +20,18 @@ func _ready() -> void:
 	new_game()
 
 
+func _load_level() -> void:
+	var level_resoure = ResourceLoader.load(next_level_path)
+	var level = level_resoure.instantiate()
+	add_child(level)
+	move_child(level, 0)
+	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
+
 func on_level_completed() -> void:
 	$Player.set_physics_process(false)
 	if next_level_path != "":
 		pass
+
 	# For now: show the congratulations screen on the HUD.
 	$HUD.show_level_complete()
 
@@ -47,8 +57,7 @@ func _on_dialogic_timeline_ended() -> void:
 func _on_continue_requested() -> void:
 	# If a next level exists, this is where it would be loaded instead.
 	if next_level_path != "":
-		# TODO(next level): swap the current level for `next_level_path` here.
-		pass
+		_load_level()
 	$Player.set_physics_process(true)
 
 
@@ -69,9 +78,7 @@ func game_over() -> void:
 func new_game() -> void:
 	score = 0
 	$Player.start($StartPosition.position)
-	#$StartTimer.start() # Replace with function body.
 	$HUD.update_score(score)
-	# $HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
 
 func _on_score_timer_timeout() -> void:

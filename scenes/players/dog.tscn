@@ -1,96 +1,63 @@
-[gd_scene load_steps=17 format=3 uid="uid://y1ma0014bqfj"]
+[gd_scene format=3 uid="uid://y1ma0014bqfj"]
 
-[ext_resource type="Script" uid="uid://b2sb4qt4s2mrd" path="res://src/mobs/dog.gd" id="1_2t1c1"]
-[ext_resource type="Texture2D" uid="uid://ds5og6nghyk03" path="res://art/mobs/golden/Goldie.png" id="2_2t1c1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2t1c1"]
-atlas = ExtResource("2_2t1c1")
-region = Rect2(0, 83, 31, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nn71s"]
-atlas = ExtResource("2_2t1c1")
-region = Rect2(32, 83, 31, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lmenn"]
-atlas = ExtResource("2_2t1c1")
-region = Rect2(64, 83, 31, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vann"]
-atlas = ExtResource("2_2t1c1")
-region = Rect2(96, 83, 31, 31)
+[ext_resource type="Script" uid="uid://b2sb4qt4s2mrd" path="res://scenes/players/dog.gd" id="1_2t1c1"]
+[ext_resource type="Texture2D" uid="uid://26kg235xqsi2" path="res://art/mobs/golden/Goldie-2x.png" id="2_2t1c1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwl70"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(0, 283, 31, 31)
+region = Rect2(0, 240, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0m36"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(32, 283, 31, 31)
+region = Rect2(64, 240, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4ukt"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(96, 283, 31, 31)
+region = Rect2(128, 160, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8f8p"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(64, 283, 31, 31)
+region = Rect2(192, 160, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdxu0"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(0, 243, 31, 31)
+region = Rect2(0, 480, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fl4u8"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(32, 243, 31, 31)
+region = Rect2(64, 480, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5xub"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(64, 243, 31, 31)
+region = Rect2(128, 480, 64, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1mx3"]
 atlas = ExtResource("2_2t1c1")
-region = Rect2(96, 243, 31, 31)
+region = Rect2(192, 480, 64, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xekqa"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2t1c1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nn71s")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lmenn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vann")
-}],
-"loop": true,
-"name": &"idle_backwards",
-"speed": 1.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pwl70")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e0m36")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u4ukt")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k8f8p")
 }],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
+"loop": 1,
+"name": &"idle_backwards",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -105,29 +72,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k1mx3")
 }],
-"loop": true,
-"name": &"walk_right",
+"loop": 1,
+"name": &"walk",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t74bc"]
-size = Vector2(48, 51.4286)
+size = Vector2(64, 96.969696)
 
-[node name="Dog" type="CharacterBody2D"]
+[node name="Dog" type="CharacterBody2D" unique_id=2095349599]
 script = ExtResource("1_2t1c1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=22763731]
 texture_filter = 1
-position = Vector2(1, 6)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.976, 1)
 sprite_frames = SubResource("SpriteFrames_xekqa")
-animation = &"idle_backwards"
-frame_progress = 0.0787922
+animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
-scale = Vector2(1, 0.66)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=273619431]
+scale = Vector2(0.75, 0.495)
 shape = SubResource("RectangleShape2D_t74bc")
 
-[node name="PlayerCamera" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=992066039]
 zoom = Vector2(2, 2)

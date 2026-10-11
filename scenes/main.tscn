@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://becvl6wirewbh"]
 
-[ext_resource type="Script" uid="uid://cs41pfemurncf" path="res://src/main.gd" id="1_dudbd"]
+[ext_resource type="Script" uid="uid://cs41pfemurncf" path="res://scenes/main.gd" id="1_dudbd"]
 [ext_resource type="PackedScene" uid="uid://bbx8l0hrce7g" path="res://scenes/players/cat.tscn" id="1_n7dum"]
 [ext_resource type="PackedScene" uid="uid://b0wfomenjjq56" path="res://scenes/hud.tscn" id="4_uypgb"]
 
@@ -29,4 +29,5 @@ rotation = 1.5707964
 position = Vector2(128, 40)
 
 [connection signal="continue_requested" from="HUD" to="." method="_on_continue_requested"]
+[connection signal="continue_requested" from="HUD" to="." method="_on_hud_continue_requested"]
 [connection signal="menu_requested" from="HUD" to="." method="_on_menu_requested"]
