@@ -1,12 +1,27 @@
 extends Node
 
 @export var mob_scene: PackedScene
-## Scene path of the level that follows this one. Empty for now; when set,
-## on_level_completed() should load it instead of (or after) the end screen.
-@export var next_level_path: String = ""
 const START_MENU_PATH := "res://scenes/start_menu.tscn"
+
 var score
-const CURRENT_LEVEL := "res://levels/intro/intro.tscn"
+var current_level_path = "res://levels/intro/intro.tscn"
+
+func _get_next_level(current_level_path: String) -> String:
+	var current_level = current_level_path.get_file()
+	if current_level == "intro.tscn":
+		return "res://levels/level1/level1.tscn"
+
+	var regex = RegEx.new()
+	regex.compile("\\d+")
+	var result = regex.search(current_level)
+	if result:
+		var lvl_idx = result.get_string().to_int()
+		print(lvl_idx)
+		return "res://levels/level%d/level%d.tscn"
+
+	printerr("Unable to find next level path")
+	return ""
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,17 +35,18 @@ func _ready() -> void:
 	new_game()
 
 
-func _load_level() -> void:
-	var level_resoure = ResourceLoader.load(next_level_path)
+func _load_level(level_path: String) -> void:
+	print("Loading new level %s" % level_path)
+	var level_resoure = ResourceLoader.load(level_path)
 	var level = level_resoure.instantiate()
+	remove_child(get_child(0))
 	add_child(level)
 	move_child(level, 0)
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
+	new_game()
 
 func on_level_completed() -> void:
 	$Player.set_physics_process(false)
-	if next_level_path != "":
-		pass
 
 	# For now: show the congratulations screen on the HUD.
 	$HUD.show_level_complete()
@@ -55,9 +71,10 @@ func _on_dialogic_timeline_ended() -> void:
 
 
 func _on_continue_requested() -> void:
-	# If a next level exists, this is where it would be loaded instead.
-	if next_level_path != "":
-		_load_level()
+	var next_level_path = _get_next_level(current_level_path)
+	_load_level(next_level_path)
+	current_level_path = next_level_path
+
 	$Player.set_physics_process(true)
 
 
