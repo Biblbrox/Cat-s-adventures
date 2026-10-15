@@ -15,12 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Angel's Adventures"
-run/main_scene="res://scenes/start_menu.tscn"
+run/main_scene="res://src/ui/start_menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
+Events="*res://src/autoload/events.gd"
+Session="*uid://con8aqcckvryk"
 Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
@@ -69,6 +71,7 @@ layout/style_list=[]
 layout/default_style="Default"
 glossary/default_case_sensitive=true
 layout/style_directory={}
+variables={}
 
 [display]
 
