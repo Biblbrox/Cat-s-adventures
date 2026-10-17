@@ -9,6 +9,7 @@ var screen_size
 var run_speed = 350
 var jump_speed = -700
 var gravity = 2500
+var can_double_jump: bool = false
 @export var controlable = true
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +40,10 @@ func get_input():
 	var jump = Input.is_action_just_pressed('ui_select')
 
 	if is_on_floor() and jump:
+		can_double_jump = true
+		velocity.y = jump_speed
+	elif !is_on_floor() and jump and can_double_jump:
+		can_double_jump = false
 		velocity.y = jump_speed
 	if right:
 		velocity.x += run_speed

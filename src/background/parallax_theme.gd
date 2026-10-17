@@ -9,4 +9,3 @@ extends Resource
 @export var weather_scale := Vector2(0.5, 0.5)
 @export var landscape_scale := Vector2(0.8, 0.8)
 
-

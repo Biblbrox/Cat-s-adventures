@@ -1654,12 +1654,20 @@ tile_set = SubResource("TileSet_ipm0e")
 position = Vector2(64, 0)
 tile_set = SubResource("TileSet_dwdbi")
 
-[node name="ParallaxScrollingScene" parent="." unique_id=272629808 instance=ExtResource("8_ba4ys")]
+[node name="ParallaxScrollingScene" parent="." unique_id=272629808 node_paths=PackedStringArray("weather_spawn_center", "background_spawn_center") instance=ExtResource("8_ba4ys")]
 z_index = -1
+weather_spawn_center = NodePath("../WeatherCenter")
+background_spawn_center = NodePath("../BackgroundCenter")
 theme = SubResource("Resource_dwdbi")
 
 [node name="PlayerStartPosition" type="Marker2D" parent="." unique_id=1507243903]
 position = Vector2(100, 600)
+
+[node name="BackgroundCenter" type="Marker2D" parent="." unique_id=10960841]
+position = Vector2(512, 416)
+
+[node name="WeatherCenter" type="Marker2D" parent="." unique_id=1526981973]
+position = Vector2(512, 384)
 
 [connection signal="event_area_entered" from="IntroArea" to="." method="_on_event_area_event_area_entered"]
 [connection signal="event_area_entered" from="DogMeetArea" to="." method="_on_event_area_event_area_entered"]
