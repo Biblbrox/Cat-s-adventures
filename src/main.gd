@@ -29,11 +29,22 @@ func _ready() -> void:
 
 func _load_level(path: String) -> void:
 	print("Loading level %s" % path)
+
+
+	var packed_scene := load(path) as PackedScene
+	if packed_scene == null:
+		push_error("Failed to load level: %s" % path)
+		return
+
+	var next_level := packed_scene.instantiate()
+
 	if current_level != null:
 		current_level.queue_free()
-	current_level = (load(path) as PackedScene).instantiate()
+
+	current_level = next_level
 	add_child(current_level)
 	move_child(current_level, 0)
+
 	current_level_path = path
 	new_game()
 
