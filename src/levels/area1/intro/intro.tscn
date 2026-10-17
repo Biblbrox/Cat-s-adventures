@@ -1,20 +1,20 @@
 [gd_scene format=4 uid="uid://c7ojv05gfwyd5"]
 
-[ext_resource type="Script" uid="uid://ilfw573hbbjh" path="res://src/levels/intro/intro.gd" id="1_7av6i"]
-[ext_resource type="Texture2D" uid="uid://c2hcqqtn3c0mm" path="res://art/tiles/Normal/TX Tileset Ground.png" id="2_yn00a"]
-[ext_resource type="PackedScene" uid="uid://dx1hs01yh8640" path="res://src/event_area.tscn" id="3_w66de"]
-[ext_resource type="PackedScene" uid="uid://cmhg4y0w2yyiw" path="res://src/objects/final_marker.tscn" id="4_yvnmw"]
-[ext_resource type="PackedScene" uid="uid://dop5dkvtdupyu" path="res://src/effects/breeze_effect.tscn" id="5_vmshm"]
-[ext_resource type="Shader" uid="uid://blddjkqkmkqiv" path="res://src/wind.gdshader" id="6_so0te"]
-[ext_resource type="Texture2D" uid="uid://w6xbt0obi5bk" path="res://art/tiles/Normal/TX Village Props.png" id="7_7q8fw"]
-[ext_resource type="PackedScene" uid="uid://kmcu3uy41bm3" path="res://src/background/parallax_scrolling_scene.tscn" id="8_ba4ys"]
-[ext_resource type="Texture2D" uid="uid://bf5dkix1vviy7" path="res://art/tiles/Backgrounds/SunnyBackground.png" id="9_3vthq"]
-[ext_resource type="Script" uid="uid://numoyhkkcqov" path="res://src/background/parallax_theme.gd" id="10_0xr0t"]
-[ext_resource type="Texture2D" uid="uid://ctea4lschracu" path="res://art/tiles/Backgrounds/Clouds.png" id="11_ox2i0"]
+[ext_resource type="Script" uid="uid://ilfw573hbbjh" path="res://src/levels/area1/intro/intro.gd" id="1_01hdc"]
+[ext_resource type="Texture2D" uid="uid://c2hcqqtn3c0mm" path="res://art/tiles/Normal/TX Tileset Ground.png" id="2_llt76"]
+[ext_resource type="PackedScene" uid="uid://dx1hs01yh8640" path="res://src/event_area.tscn" id="3_lr0g0"]
+[ext_resource type="PackedScene" uid="uid://cmhg4y0w2yyiw" path="res://src/objects/final_marker.tscn" id="4_00on8"]
+[ext_resource type="PackedScene" uid="uid://dop5dkvtdupyu" path="res://src/effects/breeze_effect.tscn" id="5_pukvv"]
+[ext_resource type="Shader" uid="uid://blddjkqkmkqiv" path="res://src/wind.gdshader" id="6_ghvps"]
+[ext_resource type="Texture2D" uid="uid://w6xbt0obi5bk" path="res://art/tiles/Normal/TX Village Props.png" id="7_8au8o"]
+[ext_resource type="PackedScene" uid="uid://kmcu3uy41bm3" path="res://src/background/parallax_scrolling_scene.tscn" id="8_fsqgv"]
+[ext_resource type="Texture2D" uid="uid://bf5dkix1vviy7" path="res://art/tiles/Backgrounds/SunnyBackground.png" id="9_s2xch"]
+[ext_resource type="Script" uid="uid://numoyhkkcqov" path="res://src/background/parallax_theme.gd" id="10_hy4q3"]
+[ext_resource type="Texture2D" uid="uid://ctea4lschracu" path="res://art/tiles/Backgrounds/Clouds.png" id="11_ob8yv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2si4l"]
 resource_name = "Terrain"
-texture = ExtResource("2_yn00a")
+texture = ExtResource("2_llt76")
 texture_region_size = Vector2i(32, 32)
 18:0/0 = 0
 18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -1566,7 +1566,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_2si4l")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dwdbi"]
-shader = ExtResource("6_so0te")
+shader = ExtResource("6_ghvps")
 shader_parameter/wind_start_threshold = 0.10000000475
 shader_parameter/wind_end_threshold = 1.0000000475
 shader_parameter/wind_end_threshold_2 = 0.1
@@ -1574,7 +1574,7 @@ shader_parameter/wind_strength = 0.10000000475
 shader_parameter/wind_speed = 0.60000002198023
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipm0e"]
-texture = ExtResource("7_7q8fw")
+texture = ExtResource("7_8au8o")
 63:0/0 = 0
 63:1/0 = 0
 63:2/0 = 0
@@ -1601,7 +1601,7 @@ terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_ipm0e")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwdbi"]
-texture = ExtResource("7_7q8fw")
+texture = ExtResource("7_8au8o")
 texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_dwdbi"]
@@ -1609,13 +1609,13 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_dwdbi")
 
 [sub_resource type="Resource" id="Resource_dwdbi"]
-script = ExtResource("10_0xr0t")
-background = ExtResource("9_3vthq")
-weather = ExtResource("11_ox2i0")
+script = ExtResource("10_hy4q3")
+background = ExtResource("9_s2xch")
+weather = ExtResource("11_ob8yv")
 metadata/_custom_type_script = "uid://numoyhkkcqov"
 
 [node name="Intro" type="Node" unique_id=347871246]
-script = ExtResource("1_7av6i")
+script = ExtResource("1_01hdc")
 
 [node name="Terrain" type="TileMapLayer" parent="." unique_id=242842557]
 z_index = 1
@@ -1623,8 +1623,8 @@ tile_map_data = PackedByteArray("AAAaACcAAAAGAAwAAAAcACcAAAAGAAwAAAAeACcAAAAGAAw
 tile_set = SubResource("TileSet_lfbo0")
 metadata/_edit_group_ = true
 
-[node name="IntroArea" parent="." unique_id=1630547772 instance=ExtResource("3_w66de")]
-position = Vector2(432, 473)
+[node name="IntroArea" parent="." unique_id=1630547772 instance=ExtResource("3_lr0g0")]
+position = Vector2(128, 544)
 scale = Vector2(0.5, 0.5)
 one_shot = true
 dialog_name = "intro"
@@ -1632,16 +1632,16 @@ dialog_name = "intro"
 [node name="DogStartPosition" type="Marker2D" parent="." unique_id=1349885138]
 position = Vector2(748, 632)
 
-[node name="DogMeetArea" parent="." unique_id=1291381527 instance=ExtResource("3_w66de")]
+[node name="DogMeetArea" parent="." unique_id=1291381527 instance=ExtResource("3_lr0g0")]
 position = Vector2(752, 496)
 scale = Vector2(0.25, 1)
 one_shot = true
 dialog_name = "dog_first_meet"
 
-[node name="FinalMarker" parent="." unique_id=1103410707 instance=ExtResource("4_yvnmw")]
+[node name="FinalMarker" parent="." unique_id=1103410707 instance=ExtResource("4_00on8")]
 position = Vector2(920, 600)
 
-[node name="BreezeEffect" parent="." unique_id=1380404707 instance=ExtResource("5_vmshm")]
+[node name="BreezeEffect" parent="." unique_id=1380404707 instance=ExtResource("5_pukvv")]
 position = Vector2(488, 608)
 scale = Vector2(2, 2)
 
@@ -1654,20 +1654,12 @@ tile_set = SubResource("TileSet_ipm0e")
 position = Vector2(64, 0)
 tile_set = SubResource("TileSet_dwdbi")
 
-[node name="ParallaxScrollingScene" parent="." unique_id=272629808 node_paths=PackedStringArray("weather_spawn_center", "background_spawn_center") instance=ExtResource("8_ba4ys")]
+[node name="ParallaxScrollingScene" parent="." unique_id=272629808 instance=ExtResource("8_fsqgv")]
 z_index = -1
-weather_spawn_center = NodePath("../WeatherCenter")
-background_spawn_center = NodePath("../BackgroundCenter")
 theme = SubResource("Resource_dwdbi")
 
 [node name="PlayerStartPosition" type="Marker2D" parent="." unique_id=1507243903]
 position = Vector2(100, 600)
-
-[node name="BackgroundCenter" type="Marker2D" parent="." unique_id=10960841]
-position = Vector2(512, 416)
-
-[node name="WeatherCenter" type="Marker2D" parent="." unique_id=1526981973]
-position = Vector2(512, 384)
 
 [connection signal="event_area_entered" from="IntroArea" to="." method="_on_event_area_event_area_entered"]
 [connection signal="event_area_entered" from="DogMeetArea" to="." method="_on_event_area_event_area_entered"]

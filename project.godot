@@ -33,7 +33,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "dog_first_meet": "res://dialogs/characters/dog_first_meet.dtl",
-"intro": "res://dialogs/intro.dtl"
+"intro": "res://dialogs/intro.dtl",
+"the_rumors": "res://dialogs/characters/the_rumors.dtl"
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -67,10 +68,13 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://dialogs/style.tres"]
+layout/default_style="res://dialogs/style.tres"
 glossary/default_case_sensitive=true
-layout/style_directory={}
+layout/style_directory={
+"": "res://dialogs/style.tres",
+"Sunny style": "res://dialogs/style.tres"
+}
 variables={}
 
 [display]
@@ -80,6 +84,13 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://dialogs/": "purple",
+"res://src/levels/": "pink"
+}
 
 [input]
 
